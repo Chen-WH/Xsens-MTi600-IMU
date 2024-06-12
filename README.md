@@ -15,7 +15,7 @@
 
 利用MT Manager进行如下设置（也可以利用MT SDK或串口通信设置，可参考官方文档此处略）
 
-![Output Configuration Xbus mode](./img/Xbus mode.png)
+![Xbus mode](./img/Xbus mode.png)
 
 ![Device Settings](./img/Device Settings.png)
 
@@ -43,12 +43,12 @@
 
 由于CAN通讯是利用ID区分设备及消息，因此多个IMU接入时应当加以区分，这里给出一个样例是在默认ID后加入设备编号，注意MT Manager中的ID为十六进制，而Simulink中为十进制。
 
-|     Data     | ID (in hex) |
-| :----------: | :---------: |
-|  Quaternion  |     21i     |
-| Rate of Turn |     32i     |
-|   delta v    |     31      |
-| Acceleration |     34i     |
+|       Data        | ID (in hex) |
+| :---------------: | :---------: |
+|    Quaternion     |     21i     |
+|   Rate of Turn    |     32i     |
+|      delta v      |     31      |
+| Free Acceleration |     35i     |
 
 ![CAN mode](./img/CAN mode.png)
 

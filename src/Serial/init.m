@@ -1,6 +1,6 @@
 clc; clear;
 % 创建串口对象
-s = serialport('COM3', 460800); % 替换 'COM3' 和 460800 为你的设置
+s = serialport('COM4', 460800); % 替换 'COM3' 和 460800 为你的设置
 
 % 配置超时时间和终止符
 configureTerminator(s, "LF"); % 根据需要设置终止符
