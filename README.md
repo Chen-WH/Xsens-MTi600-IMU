@@ -1,4 +1,4 @@
-# XsensMTi600-IMU
+# Xsens-MTi600-IMU
 
 1. 该说明主要针对Windows平台
 2. IMU安装后注意用Magnetic Field Mapper进行磁校准
