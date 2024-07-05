@@ -15,21 +15,21 @@
 
 利用MT Manager进行如下设置（也可以利用MT SDK或串口通信设置，可参考官方文档此处略）
 
-![Xbus mode](./img/Xbus mode.png)
+![Xbus mode](./img/Xbus_mode.png)
 
-![Device Settings](./img/Device Settings.png)
+![Device Settings](./img/Device_Settings.png)
 
 运行.\src\Serial\init.m进入测量模式，并通过程序输出观察Data Size等信息，如果DisableAutoMeasurement的flag为空（上电即进入测量模式）且熟悉消息详细定义则不需要该步骤。
 
-![MT low level communication protocol example](./img/MT low level communication protocol example.png)
+![MT low level communication protocol example](./img/MT_low_level_communication_protocol_example.png)
 
 接下来给出消息详细定义，建议结合官方文档食用。这里红色方框是Headers，包含Preamble(250/0xFA)，BID(255/0xFF)和MID；黄色方框是DATA长度，这里样例消息Quaternion+Acceleration+Rate of Turn长度是49；红色下划线是Quaternion消息，黄色下划线是Acceleration消息，蓝色下划线是Rate of Turn消息；绿色方框是消息对应的MID，紫色方框是消息数据长度，整个packet末尾的绿色方框是checksum。
 
-![MT message (standard length)](./img/MT message (standard length).png)
+![MT message (standard length)](./img/MT_message.png)
 
 进入测量模式后打开.\src\Serial\Serial_receiver.slx配置运行即可，注意Serial Receive中的Data size应为前一步Data长度+1，具体原因参见parseXsensData函数。
 
-![Serial Receive](./img/Serial Receive.png)
+![Serial Receive](./img/Serial_Receive.png)
 
 ## Simulink CAN
 
@@ -50,10 +50,10 @@
 |      delta v      |     31      |
 | Free Acceleration |     35i     |
 
-![CAN mode](./img/CAN mode.png)
+![CAN mode](./img/CAN_mode.png)
 
 配置输出完成后打开.\src\Serial\CAN_receiver.slx设置波特率，采样时间（对应消息频率），消息ID和消息格式，这里message ID格式 $529=2*16^2+1*16+1$，表示第一个IMU设备的四元数数据。
 
-![Packet Input](./img/Packet Input.png)
+![Packet Input](./img/Packet_Input.png)
 
 如果存在问题也可以先用Matlab的Vehicle Network Toolbox测试消息是否正常接收，验证驱动安装等前置步骤
